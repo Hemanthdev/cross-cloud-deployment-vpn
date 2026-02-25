@@ -41,6 +41,18 @@ This repository contains Terraform configuration for deploying infrastructure ac
 - `azure.tf` - Azure resources (Resource Groups, VNets, VMs, peering)
 - `gcp.tf` - GCP resources (VPCs, subnets, instances, peering)
 - `oci.tf` - OCI resources (VCNs, subnets, instances, peering)
+- `vpn.tf` - Multi-cloud VPN gateway configurations and cross-cloud IPSec tunnels
+- `VPN_SETUP.md` - Detailed VPN configuration and troubleshooting guide
+
+## Multi-Cloud VPN Connectivity
+
+VPN connections between all cloud providers enable secure cross-cloud communication:
+
+- **AWS VPN Gateway** ↔ **Azure VPN Gateway** (IPSec)
+- **Azure VPN Gateway** ↔ **GCP Cloud VPN** (IPSec)
+- **GCP Cloud VPN** ↔ **OCI Dynamic Routing Gateway** (IPSec)
+
+All instances in private subnets can communicate across cloud providers via the VPN tunnels. See `VPN_SETUP.md` for detailed configuration and troubleshooting.
 
 ## Prerequisites
 
