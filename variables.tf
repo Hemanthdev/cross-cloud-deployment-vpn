@@ -69,3 +69,15 @@ variable "oci_compartment_id" {
   type        = string
   default     = "" # Set via terraform.tfvars or environment
 }
+variable "vpn_enabled" {
+  description = "Enable cross-cloud VPN connectivity"
+  type        = bool
+  default     = true
+}
+
+variable "vpn_preshared_key" {
+  description = "Pre-shared key for VPN connections"
+  type        = string
+  sensitive   = true
+  default     = "ChangeMe123!ChangeMe456!" # IMPORTANT: Change this
+}
